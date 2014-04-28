@@ -1,0 +1,223 @@
+http://www.htmlpoint.com/
+
+
+<?php
+switch($beer)
+{
+    case 'tuborg';
+    case 'carlsberg';
+    case 'heineken';
+        echo 'Buena elección';
+    break;
+    default;
+        echo 'Por favor haga una nueva selección...';
+    break;
+}
+?> 
+
+<?php
+switch ($i):
+    case 0:
+        echo "i es igual a 0";
+        break;
+    case 1:
+        echo "i es igual a 1";
+        break;
+    case 2:
+        echo "i es igual a 2";
+        break;
+    default:
+        echo "i no es igual a 0, 1 ni 2";
+endswitch;
+?> 
+
+ciclos:
+$i = 1;
+while ($i <= 10):
+    echo $i;
+    $i++;
+endwhile;
+?> 
+
+<?php
+$i = 0;
+do {
+    echo $i;
+} while ($i > 0);
+?> 
+
+for ($i = 1, $j = 0; $i <= 10; $j += $i, print $i, $i++);
+
+for ($i = 1; $i <= 10; $i++) {
+    echo $i;
+}
+
+
+-----errores
+@ $fp = fopen("$DOCUMENT_ROOT\\..\\pedidos\\pedidos.txt", "r");	suprime errores que muestra php
+
+
+-----archivos, seguridad..
+$fp = fopen("$DOCUMENT_ROOT/../pedidos/pedidos.txt", "r");	para que se acceda solo por el sistema, no se tiene acceso publico (investigar) $DOCUMENT_ROOT
+$fp = fopen("$DOCUMENT_ROOT\\..\\pedidos\\pedidos.txt", "r");	con secuencia de escape....
+
+
+-----archivos:
+<?php
+$nombre_archivo = 'prueba.txt';
+$contenido = "Añade esto al archivo\n";
+
+// Primero vamos a asegurarnos de que el archivo existe y es escribible.
+if (is_writable($nombre_archivo)) {
+
+    // En nuestro ejemplo estamos abriendo $nombre_archivo en modo de adición.
+    // El puntero al archivo está al final del archivo
+    // donde irá $contenido cuando usemos fwrite() sobre él.
+    if (!$gestor = fopen($nombre_archivo, 'a')) {
+         echo "No se puede abrir el archivo ($nombre_archivo)";
+         exit;
+    }
+    // Escribir $contenido a nuestro archivo abierto.
+    if (fwrite($gestor, $contenido) === FALSE) {
+        echo "No se puede escribir en el archivo ($nombre_archivo)";
+        exit;
+    }
+    echo "Éxito, se escribió ($contenido) en el archivo ($nombre_archivo)";
+    fclose($gestor);
+} else {
+    echo "El archivo $nombre_archivo no es escribible";
+}
+?> 
+
+leer partes de un archivo
+while (!feof($fp))
+fgets($fp,100)   //leer 100 caracteres de un archivo
+fgetss($fp,100)   //leer 100 caracteres de un archivo eliminando las etiquetas php y html
+fgetss($fp,100,"<b>")   //leer 100 caracteres de un archivo eliminando las etiquetas php y html menos la especificada
+fgetcsv($fp,100)   //leer 100 caracteres de un archivo eliminando las etiquetas php y html
+fgetcsv($fp,100,"\t")  //Similar a fgets() excepto que fgetcsv() examina la línea que lee para tratar campos en formato CSV y devuelve una matriz que contiene el campo leído. 
+fread //Lectura de un fichero en modo binario seguro
+echo fread($fp,"125")
+fread($fp,filesize("../j.txt"))
+
+leer todo el archivo
+readfile($fichero);  //Lee un fichero y lo escribe en el buffer de salida. 
+$gestor = fopen("/home/rasmus/fichero.txt", "r");
+$gestor = fopen("/home/rasmus/fichero.gif", "wb");
+$gestor = fopen("http://www.example.com/", "r");
+$gestor = fopen("ftp://user:password@example.com/fichero.txt", "w");
+fpassthru($gestor);
+
+while (!feof($fp))
+{
+$char=fgetc($fp) //leer caracter a caracter
+//if (!feof($fp))
+echo ($char=="\n" ? "<br>":$char); //final de linea cambia a un salto de linea
+}
+
+comprobar si el archivo existe
+<?php
+$nombre_fichero = '/path/to/foo.txt';
+
+if (file_exists($nombre_fichero)) {
+    echo "El fichero $nombre_fichero existe";
+} else {
+    echo "El fichero $nombre_fichero no existe";
+}
+?> 
+
+tamaño del archivo
+filesize($nombre_fichero)
+
+borrar un archivo
+unlink — Borra un archivo
+
+vectores
+array indexado numericamente
+<?php
+$libros[0]="jaime"
+$array = array(1, 1, 1, 1,  1, 8 => 1,  4 => 1, 19, 3 => 13);
+print_r($array);
+?> 
+
+array asociativo
+<?php
+$fruits = array (
+    "frutas"  => array("a" => "naranja", "b" => "plátano", "c" => "manzana"),
+    "números" => array(1, 2, 3, 4, 5, 6),
+    "hoyos"   => array("primero", 5 => "segundo", "tercero")
+);
+?> 
+
+array asociativo
+<?php
+//EJEMPLO DE ARRAY ASOCIATIVO
+$precios= array("Action"=>112, "Photo"=>24, "Flash"=>43);
+while($elemento =each($precios))
+{
+	echo $elemento["key"];
+	echo " - ";
+	echo $elemento ["value"];
+	echo"<br>";
+}
+?>
+con list
+<?php
+$fruta = array('a' => 'manzana', 'b' => 'banana', 'c' => 'arándano');
+reset($fruta);
+while (list($clave, $valor) = each($fruta)) {
+    echo "$clave => $valor\n";
+}
+?> 
+
+array multiple indexado
+<?php
+  $libros=array(array("A","Action",100),
+                array("P", "Photo", 10),
+                array("F", "Flash", 4));
+                echo  $libros[0][0].", ".$libros[0][1].", ".$libros[0][2].".<br>";
+                echo  $libros[1][0].", ".$libros[1][1].", ".$libros[1][2].".<br>";
+                echo  $libros[2][0].", ".$libros[2][1].", ".$libros[2][2].".<br>";
+				for($fila=0;$fila<3;$fila++)
+				{
+					for($columna=0;$columna<3;$columna++)
+					{
+						echo"|".$libros[$fila][$columna];
+					}
+					echo "|<br>";
+				}
+
+?>
+
+array multiple asociativo
+<?php
+   $libros=array(array(Cod=>"A",
+	Descrip=>"Action",
+	Precio=>100),
+	array(Cod=>"P",
+	Descrip=>"Photo",
+	Precio=>10),
+	array(Cod=>"F",
+	Descrip=>"Flash",
+	Precio=>40)
+	);
+for($fila=0;$fila<3;$fila++)
+ {
+         echo"|".$libros[$fila]["Cod"]."|".$libros[$fila]["Descrip"].
+              "|".$libros[$fila]["Precio"]."|<br>";
+              }
+	
+	
+ for ($fila=0;$fila<3;$fila++)
+  {
+          while(list ($key, $value)=each($libros[$fila]))
+          {
+                  echo"|$value";
+                  }
+                  echo "|<br>";
+                  }
+?>
+
+
+
+

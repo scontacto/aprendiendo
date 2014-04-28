@@ -1,0 +1,350 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"b",
+				"bootstrap"
+			],
+			[
+				"src",
+				"src"
+			],
+			[
+				"borde",
+				"border-radius"
+			],
+			[
+				"font",
+				"font-variant"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/wamp/www/ejercicios/index.html",
+			"settings":
+			{
+				"buffer_size": 2130,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<?php get_header(); ?>\n<script type=\"text/javascript\" src=\"<?php bloginfo('template_url');?>/js/funciones.js\"></script>\n<!--Cuerpo principal paginas blancas -->\n	<div id=\"page_blanco\" class=\"contenido_principal\">\n\n		<div id=\"recorrido\">\n			<div class=\"lugarFecha\">\n				<p>\n				<?php\n				echo \"Venezuela, \";\n				echo date(\"d/m/y\");\n				?>\n				</p>\n			</div>\n			<a title=\"Ver todas las entradas en Somos Banesco\"  href=\"<?php echo home_url( '/somos-banesco' ); ?>\">Somos Banesco</a>\n			<span class=\"separador\"></span>\n		</div>\n		<div id=\"recuadro_superior\">\n			<div class=\"titulo-tarjetas\"> \n				<?php \n        if(is_page('Prevención y Control de Legitimación de Capitales y Financiamiento al Terrorismo'))\n        {echo \"<div class=\\\"contenedor-titulo-tarjetas\\\"><h1>Prevención y Control de Legitimación de Capitales y Financiamiento al Terrorismo</h1></div>\";}\n        else{	echo \"<div class=\\\"contenedor-titulo-tarjetas\\\"><h1>\"; echo the_title(); echo \"</h1></div>\";} ?>\n<!--------------FUNCIONALIDAD BOTONES DE IMPRESION/SOCIAL/TEXTO------------------>\n			<div id=\"contenedor_botones\">\n				<div class=\"AaMa\" title=\"Aumentar tamaño de letra\"></div>\n				<div class=\"AaMe\" title=\"Disminuir tamaño de letra\"></div>\n				<div class=\"imprimir\" title=\"Imprimir\" categoria=\"<?php echo $category->cat_name; ?>\" titulo_entrada=\"<?php echo the_title(); ?>\"></div>\n				<div id=\"contenedor_sharethis\" title=\"Compartir este contenido\">\n				<span class='st_sharethis_large' st_title='<?php the_title(); ?>' st_url='<?php \nthe_permalink(); ?>' displayText='sharethis' st_via='Banesco' st_msg='#Banesco' st_image='<?php \n				$imagen_destacada = wp_get_attachment_url(get_post_thumbnail_id());\n				if (empty($imagen_destacada)){\n				echo bloginfo(\"template_directory\").'/imagenes/destacada_img_generica.jpg';\n				}else{\n				echo $imagen_destacada;\n				}				\n?>'></span>\n<?php $imagen_destacada = wp_get_attachment_url(get_post_thumbnail_id()); ?>\n				</div>\n			</div>\n<!-------------------FIN DE BOTONES IMPRESION/SOCIAL/TEXTO------------------->\n		</div>\n		<div id=\"contenido\">\n			<div class=\"contenidoPpalPageBlanca\">\n				<div class=\"Contenido_Navegacion_largo\">\n          <?php the_content(); ?>\n          <div class=\"clear\"></div>\n			</div>\n			</div>\n		</div>\n\n		<div class=\"linea\">\n		</div>\n		\n<div id=\"menu_inferior\">\n			<div class=\"inferior_personas\"><?php wp_nav_menu( array('menu' => 'Personas Inferior' ,'container_class' => 'menu_inferior')); ?></div>\n			<div class=\"inferior_empresas\"><?php wp_nav_menu( array('menu' => 'Empresas Inferior' ,'container_class' => 'menu_inferior')); ?></div>\n			<div class=\"inferior_canales\"><?php wp_nav_menu( array('menu' => 'Canales Inferior' ,'container_class' => 'menu_inferior')); ?></div>\n			<div class=\"inferior_somos_banesco\"><?php wp_nav_menu( array('menu' => 'Somos Banesco Inferior' ,'container_class' => 'menu_inferior')); ?></div>\n		</div>\n\n		</div> <!-- recuadro_superior-->\n\n		<div class=\"espacio\">\n		</div>\n	</div><!--page_donde_estamos -->\n\n	\n\n<?php //get_sidebar(); ?>\n<?php get_footer(); ?>",
+			"settings":
+			{
+				"buffer_size": 3036,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"snippet bs3-co",
+				"Snippet: bs3-col-10"
+			],
+			[
+				"fet",
+				"Fetch: Manage"
+			],
+			[
+				"fetch",
+				"Fetch: Manage"
+			],
+			[
+				"boost",
+				"Snippet: bootstrapcdn3"
+			],
+			[
+				"fetc",
+				"Fetch: Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"boo",
+				"Snippet: bootstrapcdn3"
+			],
+			[
+				"fetch ma",
+				"Fetch: Manage"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: <?php else: ?>"
+			],
+			[
+				"html",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"HTML",
+				"Snippet: html"
+			],
+			[
+				"snippet",
+				"Snippet: fprintf …"
+			],
+			[
+				"snimpper",
+				"Snippet: template <typename ${1:_InputIter}>"
+			],
+			[
+				"",
+				"Bookmarks: Clear All"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())   ",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print('Please restart Sublime Text to finish installation')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp/www/ejercicios/js/jquery.js",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/Fetch.sublime-settings",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/bootstrapcdn3.sublime-snippet",
+		"/C/wamp/www/bootstrap/prueba.less",
+		"/C/wamp/www/bootstrap/index.html",
+		"/C/wamp/www/bootstrap/fonts/glyphicons-halflings-regular.svg",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/List LESS Variables/lessvariables.sublime-settings",
+		"/C/wamp/www/bootstrap/prueba.html",
+		"/C/wamp/www/aprendiendo/jaime.css",
+		"/C/wamp/www/aprendiendo/prueba.html",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/open_browser.py",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/wamp/www/aprendiendo/arrayTri.php",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/wamp/www/aprendiendo/array5.php",
+		"/C/wamp/www/aprendiendo/array1.php",
+		"/C/wamp/www/aprendiendo/envio.php",
+		"/C/wamp/www/aprendiendo/aprendiendo.sublime-project",
+		"/C/wamp/www/aprendiendo/formulario/miOrderform.htm",
+		"/C/wamp/www/aprendiendo/vt7/formulario.htm",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/wamp/www/aprendiendo/prueba"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"font-fa",
+			"highlight_modified_tabs",
+			"&quot;highlight_modified_tabs&quot",
+			"&quot;highlight_line&quot"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/wamp/www/ejercicios/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2130,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2025,
+								2025
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 51.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3036,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1016,
+								1016
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "aprendiendo.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				".php",
+				"envio.php"
+			],
+			[
+				"php",
+				"array1.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 231.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

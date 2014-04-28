@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\bootstrap"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\ejercicios"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\wamp\\www\\banesco2014\\wp-content\\themes\\Banesco2014"
+		}
+	]
+}

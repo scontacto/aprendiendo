@@ -1,0 +1,1 @@
+Para que el sistema funcione tal como va, con la ruta indicada, tienes que colocar la carpeta pedidos fuera de la carpeta vt7, en el mismo directorio donde se encuentra vt7.

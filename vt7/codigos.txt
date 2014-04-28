@@ -1,0 +1,18 @@
+Nota: para que la aplicación funcione sin modificaciones tienes que colocar la carpeta pedidos fuera de la carpeta vt7, en el mismo directorio que está esta carpeta.
+
+A continuación tienes algunos ejemplos de rutas, la primera es la que usamos en la aplicación aunque puedes en cualquier momento modificarla:
+
+
+
+
+Para escribir en un directorio por encima del directorio del archivo
+
+@ $fp = fopen("../pedidos/pedidos.txt", "a");
+
+para escribir en un directorio al mismo nivel que el archivo
+
+@ $fp = fopen("pedidos/pedidos.txt", "a");
+
+Para escribir en un archivo en el mismo nivel que el archivo
+
+@ $fp = fopen("pedidos.txt", "a");

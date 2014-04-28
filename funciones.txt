@@ -1,0 +1,121 @@
+echo number_format($a,2) 	coloca $a en un string con 2 decimales.
+gettype($a) 				devuelve el tipo de variable
+$foo = "5bar";
+settype($foo, "integer"); 	// $foo es ahora 5   (entero)	
+isset ()					Determina si una variable está definida y no es NULL. 
+unset($foo);				unset() destruye las variables especificadas.
+if (empty($var)) {
+    echo '$var es o bien 0, vacía, o no se encuentra definida en absoluto';
+}
+
+flock
+Pensemos en el ejemplo típico, un contador de visitas que a cada nuevo visitante abre el fichero donde se guardan los datos, pone dentro la información de la nueva visita, y después lo cierra. ¿que pasaría si durante la operación de escritura hay otro usuario que visita la web? que el script abriría de nuevo el fichero y escribiría los datos antes de que la anterior operación hubiera terminado.
+Si coinciden los dos procesos, como mal menor, la información se escribirá de forma incorrecta (y por tanto inutil). Como mal peor, tendremos un fichero corrupto.
+Para evitar estos problemas al manejar archivos, con php disponemos de la función flock (file lock) con la cual podemos poner un candado al archivo (impidiendo que se abra en modo escritura) o reabrirlo a voluntad.
+<?
+if ($file = fopen( "/home/user/pub/mylog.log", "a")) //file handler
+{
+flock($file, 2); // cerramos $file
+fputs($file, $the_line); // escribimos el contenido en el
+flock($file, 3); // terminada la escritura, quitamos cierre
+fclose($file); // cerrar archivo
+}
+?>
+
+Opciones de flock()
+flock() opera sobre un file handler que debe apuntar a un fichero previamente abierto. Puede tener los siguientes valores:
+Para que adquiera un bloqueo compartido (lectura), se fija su valor a 1. Mas de un proceso puede tener un candado compartido para un mismo archivo.
+Para obtener un bloqueo exclusivo (escritura), se fija el valor a 2. Solo un proceso puede tener un candado exclusivo. Los demás procesos deben esperar
+Para liberar un bloqueo (compartido o exclusivo), se fija el valor a 3.
+Si no quieres que flock() bloquee mientras está activado, suma 4 al valor fijado. si se quiere que flock no bloquee el script sumar 4 al modo (modos: 5,6,7) y consultar por el valor devuelto por la función: true si el lock fue adquirido o false si no fue adquirido. Usando esta función pueden implementarse mecanismos de sincronización entre procesos
+
+each — Devolver el par clave/valor actual de un array y avanzar el cursor del array
+<?php
+$foo = array("Robert" => "Bob", "Seppo" => "Sepi");
+$bar = each($foo);
+print_r($bar);
+?> 
+<?php
+$fruta = array('a' => 'manzana', 'b' => 'banana', 'c' => 'arándano');
+reset($fruta);  //Establece el puntero interno de un array a su primer elemento
+while (list($clave, $valor) = each($fruta)) {
+    echo "$clave => $valor\n";
+}
+?> 
+
+
+sort //Esta función ordena un array. Los elementos serán ordenados de menor a mayor cuando la función haya terminado
+<?php
+$fruits = array("lemon", "orange", "banana", "apple");
+sort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "fruits[" . $key . "] = " . $val . "\n";
+}
+?> 
+<?php
+$fruits = array(
+    "Orange1", "orange2", "Orange3", "orange20"
+);
+sort($fruits, SORT_NATURAL | SORT_FLAG_CASE);
+foreach ($fruits as $key => $val) {
+    echo "fruits[" . $key . "] = " . $val . "\n";
+}
+?>
+
+asort — Ordena un array y mantiene la asociación de índices
+<?php
+$fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+asort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val\n";
+}
+?> 
+El resultado del ejemplo sería:
+c = apple
+b = banana
+d = lemon
+a = orange
+
+ksort — Ordena un array por clave
+<?php
+$fruits = array("d"=>"lemon", "a"=>"orange", "b"=>"banana", "c"=>"apple");
+ksort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val\n";
+}
+?> 
+El resultado del ejemplo sería:
+a = orange
+b = banana
+c = apple
+d = lemon
+
+rsort — Ordena un array en orden inverso
+
+<?php
+$fruits = array("limón", "naranja", "plátano", "manzana");
+rsort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val\n";
+}
+?> 
+El resultado del ejemplo sería:
+0 = plátano
+1 = naranja
+2 = manzana
+3 = limón
+
+krsort — Ordena un array por clave en orden inverso
+
+<?php
+$fruits = array("d"=>"lemon", "a"=>"orange", "b"=>"banana", "c"=>"apple");
+krsort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val\n";
+}
+?> 
+El resultado del ejemplo sería:
+d = lemon
+c = apple
+b = banana
+a = orange
